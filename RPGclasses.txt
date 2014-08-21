@@ -1,0 +1,141 @@
+:: RPG classes and engine [script]
+window.ObjWiki = function () {
+	this.listContents = function () {
+		for(var item in this) {
+			if(heldItems) {
+				heldItems += ", ";
+			}
+			else {
+				var heldItems = "You have: ";
+			}
+			heldItems += this[item].amount + " " + this[item].objRef.name;
+		}
+		heldItems += ".";
+		return heldItems;
+	}
+}
+/* listContents() needs to become a macro */
+window.listContents = function (wiki) {
+	for(var item in wiki) {
+		if(heldItems) {
+			heldItems += ", ";
+		}
+		else {
+			var heldItems = "You have: ";
+		}
+		heldItems += wiki[item].amount + " " + wiki[item].objRef.name;
+	}
+	heldItems += ".";
+	return heldItems;
+}
+
+window.Item = function (name,description) {
+	this.name = name;
+	this.description = description;
+};
+window.Weapon = function (name,description,dStage) {
+	/* Weapon class is a child of Item */
+	Item.call(this,name,description);
+
+	this.dStage = dStage;
+}
+window.RefItem = function (obj,num) {
+	this.objRef = obj;
+	this.amount = num;
+	this.changeAmount = function(t) {
+		if(this.amount >= Math.abs(t)) {
+			this.amount += t;
+		}
+		else this.amount = t;
+	}
+};
+
+window.Combatant = function (name,title) {
+	this.name = name;
+	this.title = title;
+	
+	/* Initialization functions */
+	this.initHP = function (current,max) {
+		this.hp = current;
+		this.maxHP = max;
+	}
+	this.initMP = function (current,max) {
+		this.mp = current;
+		this.maxMP = max;
+	}
+	this.initAP = function (current,goal) {
+		this.ap = current;
+		this.maxAP = goal;
+	}
+	this.initStats = function (str,con,acc,eva) {
+		this.str = new Stat(str);
+		this.con = new Stat(con);
+		this.acc = new Stat(acc);
+		this.eva = new Stat(eva);
+	}
+	this.equipWeapon = function (weapon) {
+		this.weapon = weapon;
+	}
+	this.equipArmor = function (armor) {
+		this.armor = armor;
+	}
+}
+window.Stat = function(base) {
+	this.base = base;
+	this.actual = base;
+	this.mods = [];
+	this.modStat = function(mod) {
+		this.mods.push(new RefMod(mod));
+		this.actual += mod.modAmt;
+	}
+}
+window.Mod = function(source,amount,turns) {
+	this.source = source;
+	this.modAmt = amount;
+	this.turns = turns;
+}
+window.RefMod = function(mod) {
+	this.modRef = mod;
+	this.duration = mod.turns;
+}
+
+/* passTurn should be used at the beginning of a turn */
+try {
+	version.extensions['passTurnMacro'] =
+	{
+		major:1, minor:0, revision:0
+	};
+	macros['passTurn'] =
+	{
+		handler: function(place,macroName,params,parser)
+		{
+			for(n = params.length - 1; n > -1; n--) 
+			{
+				test = params[n];
+				/*new Wikifier(place,test);*/
+				this.turnStat(state.history[0].variables[test].str);
+				this.turnStat(state.history[0].variables[test].con);
+				this.turnStat(state.history[0].variables[test].acc);
+				this.turnStat(state.history[0].variables[test].eva);
+			}
+		},
+		init: function() 
+		{ 
+			
+		},
+		turnStat: function(stat) {
+			i = stat.mods.length - 1;
+			/*alert(i);*/
+			while(i > -1) {
+				stat.mods[i].duration--;
+				if (stat.mods[i].duration <= 0) {
+					stat.actual -= stat.mods[i].modRef.modAmt;
+					stat.mods.splice(i,1);
+				}
+				i--;
+			}
+		}
+	};
+} catch(e) {
+	throwError(place,"passTurn error: "+e.message);
+}
