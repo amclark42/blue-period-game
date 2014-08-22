@@ -1,0 +1,31 @@
+::StoryInit
+/% Any macros in this passage will be run before the Start passage (or any passage you wish to Test Play) is run. %/
+<<set $days to 0>>
+<<incrTime 9>>
+
+/% ITEMS %/
+<<set $bpWiki = new ObjWiki()>> 
+<<set $bpWiki.bread = new Item("bread","A slice of baked goodness.")>>
+<<set $bpWiki.cheese = new Item("cheese","A scrumptious nibblet of goat cheese.")>>
+<<set $bpWiki.firewood = new Item("firewood","A log suitable for burning.")>>
+<<set $bpWiki.spear = new Weapon("spear","Your trusty spear, given to you by your mother.",2)>>
+<<set $bpWiki.shield = new Item("shield","Your best shield, given to you by your grandfather.")>>
+<<set $bpWiki.armor = new Item("armor","Your light armor, essential for your free lance work.")>>
+
+<<set $woodbin = new ObjWiki()>>
+<<set $woodbin.firewood = new RefItem($bpWiki.firewood,3)>>
+
+/% MODIFIERS %/
+
+
+/% COMBATANTS %/
+<<set $player = new Combatant("player","Free Lance")>>
+<<set $player.initHP(10,20)>>
+<<set $player.initMP(2,10)>>
+<<set $player.initAP(0,10)>>
+<<set $player.initStats(4,3,2,2)>>
+<<set $player.equipWeapon($bpWiki.spear)>>
+
+<<set $shadeTest = new Combatant("shade","Parasite")>>
+<<set $shadeTest.initHP(100,100)>>
+<<set $shadeTest.initStats(2,4,1,1)>>
