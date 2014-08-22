@@ -1,4 +1,4 @@
-:: RPG classes and engine [script]
+::RPG classes and engine [script]
 window.ObjWiki = function () {
 	this.listContents = function () {
 		for(var item in this) {
@@ -33,20 +33,26 @@ window.Item = function (name,description) {
 	this.name = name;
 	this.description = description;
 };
-window.Weapon = function (name,description,dStage) {
+window.Weapon = function (name,description,cStage) {
 	/* Weapon class is a child of Item */
 	Item.call(this,name,description);
 
-	this.dStage = dStage;
+	this.cStage = cStage;
+}
+window.Armor = function (name,description,cStage) {
+	/* Armor class is a child of Item */
+	Item.call(this,name,description);
+
+	this.cStage = cStage;
 }
 window.RefItem = function (obj,num) {
 	this.objRef = obj;
 	this.amount = num;
-	this.changeAmount = function(t) {
-		if(this.amount >= Math.abs(t)) {
-			this.amount += t;
+	this.changeAmount = function(amt) {
+		if(this.amount >= Math.abs(amt)) {
+			this.amount += amt;
 		}
-		else this.amount = t;
+		else this.amount = amt;
 	}
 };
 
@@ -67,11 +73,11 @@ window.Combatant = function (name,title) {
 		this.ap = current;
 		this.maxAP = goal;
 	}
-	this.initStats = function (str,con,acc,eva) {
+	this.initStats = function (str,con,agi,acc) {
 		this.str = new Stat(str);
 		this.con = new Stat(con);
-		this.acc = new Stat(acc);
-		this.eva = new Stat(eva);
+		this.acc = new Stat(agi);
+		this.eva = new Stat(acc);
 	}
 	this.equipWeapon = function (weapon) {
 		this.weapon = weapon;
@@ -97,45 +103,4 @@ window.Mod = function(source,amount,turns) {
 window.RefMod = function(mod) {
 	this.modRef = mod;
 	this.duration = mod.turns;
-}
-
-/* passTurn should be used at the beginning of a turn */
-try {
-	version.extensions['passTurnMacro'] =
-	{
-		major:1, minor:0, revision:0
-	};
-	macros['passTurn'] =
-	{
-		handler: function(place,macroName,params,parser)
-		{
-			for(n = params.length - 1; n > -1; n--) 
-			{
-				test = params[n];
-				/*new Wikifier(place,test);*/
-				this.turnStat(state.history[0].variables[test].str);
-				this.turnStat(state.history[0].variables[test].con);
-				this.turnStat(state.history[0].variables[test].acc);
-				this.turnStat(state.history[0].variables[test].eva);
-			}
-		},
-		init: function() 
-		{ 
-			
-		},
-		turnStat: function(stat) {
-			i = stat.mods.length - 1;
-			/*alert(i);*/
-			while(i > -1) {
-				stat.mods[i].duration--;
-				if (stat.mods[i].duration <= 0) {
-					stat.actual -= stat.mods[i].modRef.modAmt;
-					stat.mods.splice(i,1);
-				}
-				i--;
-			}
-		}
-	};
-} catch(e) {
-	throwError(place,"passTurn error: "+e.message);
 }
