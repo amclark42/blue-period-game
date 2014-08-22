@@ -1,14 +1,18 @@
-::Test attack [test]
+::Start
 <<nobr>>
-<<if visited() is 1>>
-First visit! 
 <<set $test = new Mod("random",5,2)>>
 <<set $shadeTest.con.modStat($test)>>
-<<endif>>
+<<endnobr>>\
+<<attack $player $shadeTest>>
 
-<<endnobr>><<if visited() != 1>>\
+Shade's con: <<print $shadeTest.con.actual>>
+
+[[Attack again|Test attack]]
+[[Defend|Test defend]]
+
+
+::Test attack [test]
 <<passTurn shadeTest>>
-<<endif>>\
 <<attack $player $shadeTest>>
 
 Shade's con: <<print $shadeTest.con.actual>>
@@ -20,8 +24,8 @@ Shade's con: <<print $shadeTest.con.actual>>
 ::Test defend [test]
 <<nobr>>
 
-
 <<endnobr>>
+
 
 ::attack [mechanics]
 <<nobr>>
