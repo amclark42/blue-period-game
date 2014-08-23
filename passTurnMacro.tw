@@ -1,0 +1,41 @@
+::passTurnMacro [script]
+/* passTurn should be used at the beginning of a turn */
+try {
+	version.extensions['passTurnMacro'] =
+	{
+		major:1, minor:0, revision:0
+	};
+	macros['passTurn'] =
+	{
+		handler: function(place,macroName,params,parser)
+		{
+			for(n = params.length - 1; n > -1; n--) 
+			{
+				test = params[n];
+				/*new Wikifier(place,test);*/
+				this.turnStat(state.history[0].variables[test].str);
+				this.turnStat(state.history[0].variables[test].con);
+				this.turnStat(state.history[0].variables[test].agi);
+				this.turnStat(state.history[0].variables[test].acc);
+			}
+		},
+		init: function() 
+		{ 
+			
+		},
+		turnStat: function(stat) {
+			i = stat.mods.length - 1;
+			/*alert(i);*/
+			while(i > -1) {
+				stat.mods[i].duration--;
+				if (stat.mods[i].duration <= 0) {
+					stat.actual -= stat.mods[i].modRef.modAmt;
+					stat.mods.splice(i,1);
+				}
+				i--;
+			}
+		}
+	};
+} catch(e) {
+	throwError(place,"passTurn error: "+e.message);
+}

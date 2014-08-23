@@ -1,0 +1,63 @@
+::Start
+<<nobr>>
+<<set $test = new Mod("random",5,2)>>
+<<set $shadeTest.con.modStat($test)>>
+<<endnobr>>\
+<<attack $player $shadeTest>>
+
+Shade's con: <<print $shadeTest.con.actual>>
+
+[[Attack again|Test attack]]
+[[Defend|Test defend]]
+
+
+::Test attack [test]
+<<passTurn shadeTest>>
+<<attack $player $shadeTest>>
+
+Shade's con: <<print $shadeTest.con.actual>>
+
+[[Attack again|Test attack]]
+[[Defend|Test defend]]
+
+
+::Test defend [test]
+<<nobr>>
+
+<<endnobr>>
+
+
+::attack [mechanics]
+<<nobr>>
+<<set $damage = 0>>
+<<set $attacker = parameter(0)>>
+<<set $defender = parameter(1)>>
+<<print $attacker.name>> versus <<print $defender.name>><br>
+
+/% Determine success floor %/
+<<set $sucFlr = 5 - $attacker.acc.actual + $defender.eva.actual>>
+$sucFlr = <<print $sucFlr>><br>
+
+/% Roll for hit %/
+<<set $AC = random(1,20)>>
+$AC = <<print $AC>><br>
+/% Is AC a critical miss? %/
+<<if $AC is 1>>
+<<endif>>
+
+/% Calculate damage %/
+<<if $AC >= $sucFlr>>
+	<<set $damage = random($attacker.weapon.dStage,$attacker.weapon.dStage * 6) + $attacker.str.actual - $defender.con.actual>>
+	/% Minimum damage is 1 %/
+	<<if $damage <= 0>>
+		<<set $damage = 1>>
+	<<endif>>
+	/% Calculate critical damage %/
+	<<if $AC is 20>>
+		<<set $damage = $damage * 2>>
+	<<endif>>
+	/% Reduce defender's HP %/
+	<<set $defender.hp -= $damage>>
+<<endif>>
+<<print $defender.name>> hp = <<print $defender.hp>> after <<print $damage>> damage<br>
+<<endnobr>>
