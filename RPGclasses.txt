@@ -94,6 +94,18 @@ window.Stat = function(base) {
 		this.mods.push(new RefMod(mod));
 		this.actual += mod.modAmt;
 	}
+	this.turnStat = function() {
+			i = this.mods.length - 1;
+			/*alert(i);*/
+			while(i > -1) {
+				this.mods[i].duration--;
+				if (this.mods[i].duration <= 0) {
+					this.actual -= this.mods[i].modRef.modAmt;
+					this.mods.splice(i,1);
+				}
+				i--;
+			}
+		}
 }
 window.Mod = function(source,amount,turns) {
 	this.source = source;
