@@ -5,7 +5,7 @@ S''
 p2
 sS'saveDestination'
 p3
-VC:\u005cUsers\u005cAsh\u005cDocuments\u005cDropbox\u005cAPO - Major Projects\u005cBlue Period\u005cbluePeriod.tws
+VC:\u005cUsers\u005cAsh\u005cDocuments\u005cblue-period-game\u005cbluePeriod.tws
 p4
 sS'metadata'
 p5
@@ -23,7 +23,7 @@ p11
 (dp13
 S'selected'
 p14
-I01
+I00
 sS'pos'
 p15
 (lp16
@@ -37,7 +37,7 @@ p18
 (dp20
 S'text'
 p21
-V<<stats>>\u000a\u000a<<print listContents($woodbin)>>\u000a<<print $woodbin.firewood.description>>\u000a\u000a"You look awful," Kerim says, taking your tankard of beer.\u000a\u000aYou sigh and try not to imagine what he's seeing right now. The circles under your eyes? Are your eyebrows doing that perpetually-pinched-together thing again? You push a piece of gold toward him for another beer, but he pushes it back to you.\u000a\u000a"I think I'll close early tonight," he tells you. "Not that I mind your company, but you look like you could use some sleep."\u000a\u000aHe's right, and yet... You think of lying awake in the darkness. Even the ill-lit inn sounds better than that right now.\u000a\u000a[[Stay a little longer|S1 Linger at the inn]]\u000a[[Go home|S1 Exit inn]]
+V<<stats>>\u000a\u000a"You look awful," Kerim says, taking your tankard of beer.\u000a\u000aYou sigh and try not to imagine what he's seeing right now. The circles under your eyes? Are your eyebrows doing that perpetually-pinched-together thing again? You push a piece of gold toward him for another beer, but he pushes it back to you.\u000a\u000a"I think I'll close early tonight," he tells you. "Not that I mind your company, but you look like you could use some sleep."\u000a\u000aHe's right, and yet... You think of lying awake in the darkness. Even the ill-lit inn sounds better than that right now.\u000a\u000a[[Stay a little longer|S1 Linger at the inn]]\u000a[[Go home|S1 Exit inn]]
 p22
 sS'title'
 p23
@@ -50,12 +50,12 @@ struct_time
 p26
 ((I2014
 I8
-I19
-I17
-I57
-I34
-I1
-I231
+I27
+I20
+I48
+I49
+I2
+I239
 I1
 tp27
 (dp28
@@ -66,8 +66,10 @@ p31
 (lp32
 Vintro
 p33
-asS'created'
+aVKerim
 p34
+asS'created'
+p35
 g26
 ((I2014
 I3
@@ -78,28 +80,28 @@ I41
 I5
 I60
 I0
-tp35
-(dp36
-tp37
-Rp38
-sbsa(dp39
+tp36
+(dp37
+tp38
+Rp39
+sbsa(dp40
 g14
 I00
 sg15
-(lp40
+(lp41
 I9
 aI23
 asg17
 (itiddlywiki
 Tiddler
-p41
-(dp42
+p42
+(dp43
 g21
 VBlue Period
-p43
+p44
 sg23
 VStoryTitle
-p44
+p45
 sg25
 g26
 ((I2014
@@ -111,13 +113,13 @@ I0
 I5
 I60
 I0
-tp45
-(dp46
-tp47
-Rp48
+tp46
+(dp47
+tp48
+Rp49
 sg31
-(lp49
-sg34
+(lp50
+sg35
 g26
 ((I2014
 I3
@@ -128,28 +130,28 @@ I41
 I5
 I60
 I0
-tp50
-(dp51
-tp52
-Rp53
-sbsa(dp54
+tp51
+(dp52
+tp53
+Rp54
+sbsa(dp55
 g14
 I00
 sg15
-(lp55
+(lp56
 I10
 aI158
 asg17
 (itiddlywiki
 Tiddler
-p56
-(dp57
+p57
+(dp58
 g21
 Vprobablefutures
-p58
+p59
 sg23
 VStoryAuthor
-p59
+p60
 sg25
 g26
 ((I2014
@@ -161,13 +163,13 @@ I10
 I5
 I60
 I0
-tp60
-(dp61
-tp62
-Rp63
+tp61
+(dp62
+tp63
+Rp64
 sg31
-(lp64
-sg34
+(lp65
+sg35
 g26
 ((I2014
 I3
@@ -178,48 +180,50 @@ I41
 I5
 I60
 I0
-tp65
-(dp66
-tp67
-Rp68
-sbsa(dp69
+tp66
+(dp67
+tp68
+Rp69
+sbsa(dp70
 g14
 I00
 sg15
-(lp70
+(lp71
 I343
 aI939
 asg17
 (itiddlywiki
 Tiddler
-p71
-(dp72
+p72
+(dp73
 g21
 V<<nobr>>\u000a<<if $player.hp[0] > 2>>\u000a<<set $player.hp[0] -= 1>>\u000a<<endif>>\u000a<<if $player.mp[0] < ($player.mp[1] - 1)>>\u000a<<set $player.mp[0] += 1>>\u000a<<endif>>\u000a<<incrTime 1>>\u000a<<set $snoozes += 1>>\u000a<<endnobr>>\u005c\u000a<<stats>>\u000a\u000aYou groan and hold up a hand against the bright sunshine. "Just a little longer, Mari."\u000a\u000aMari rolls her eyes and holds out her empty palm. You draw a coin from the pouch hanging from your bedframe and toss it to her.\u000a\u000a"I'll be back," she promises, ominously. You wave her off, already falling back into a light doze.\u000a\u000aBut sure enough, it seems like you have only just closed your eyes when she's back again, banging at your poor shutters. You sigh, reflecting on how hard it can be just to get out of bed.\u000a\u000a<<if $snoozes < 2>>[[Just a little longer...|S1 Snooze]]<<else>>[[Just a little longer...|S1 Nap the day away]]<<set $snoozes to 0>><<endif>>\u000a[[Get up.|S1 Out of bed]]
-p73
+p74
 sg23
 VS1 Snooze
-p74
+p75
 sg25
 g26
 ((I2014
-I5
-I21
-I16
-I42
-I5
+I8
+I27
+I20
+I49
+I48
 I2
-I141
+I239
 I1
-tp75
-(dp76
-tp77
-Rp78
+tp76
+(dp77
+tp78
+Rp79
 sg31
-(lp79
+(lp80
 Vintro
-p80
-asg34
+p81
+aVMari
+p82
+asg35
 g26
 ((I2014
 I3
@@ -230,48 +234,50 @@ I10
 I6
 I61
 I0
-tp81
-(dp82
 tp83
-Rp84
-sbsa(dp85
+(dp84
+tp85
+Rp86
+sbsa(dp87
 g14
 I00
 sg15
-(lp86
+(lp88
 F382.0
 aF1096.0
 asg17
 (itiddlywiki
 Tiddler
-p87
-(dp88
+p89
+(dp90
 g21
 V<<stats>>\u000a\u000aYou manage to sit up, then slowly rise to your feet. \u005c\u000a<<if $overslept is false>>\u005c\u000a<<achievement>>\u000a\u000aMari shoots you a pleased grin. "Maybe you aren't completely fucking useless after all," she snickers, and runs off toward town with the final gold piece you've handed her. "See ya, 'lancer!" You watch her go, wondering how someone only five years younger can have so much more energy than you.\u000a<<endif>>\u000a<<home>>\u000a
-p89
+p91
 sg23
 VS1 Out of bed
-p90
+p92
 sg25
 g26
 ((I2014
-I5
-I21
-I16
-I42
-I52
+I8
+I27
+I20
+I49
+I57
 I2
-I141
+I239
 I1
-tp91
-(dp92
 tp93
-Rp94
+(dp94
+tp95
+Rp96
 sg31
-(lp95
+(lp97
 Vintro
-p96
-asg34
+p98
+aVMari
+p99
+asg35
 g26
 ((I2014
 I3
@@ -282,48 +288,50 @@ I59
 I6
 I61
 I0
-tp97
-(dp98
-tp99
-Rp100
-sbsa(dp101
+tp100
+(dp101
+tp102
+Rp103
+sbsa(dp104
 g14
 I00
 sg15
-(lp102
+(lp105
 I539
 aI912
 asg17
 (itiddlywiki
 Tiddler
-p103
-(dp104
+p106
+(dp107
 g21
 V<<nobr>>\u000a<<if $player.hp[0] > 2>>\u000a<<set $player.hp[0] -= 2>>\u000a<<endif>>\u000a<<if $player.mp[0] < ($player.mp[1] - 1)>>\u000a<<set $player.mp[0] += 2>>\u000a<<endif>>\u000a<<incrTime 2>>\u000a<<set $snoozes to 0>>\u000a<<set $overslept to true>>\u000a<<endnobr>>\u005c\u000a<<stats>>\u000a\u000aAs she catches your gold, Mari shakes her head. "Just because you don't have to get up at dawn like the rest of us, you think you can keep me wandering back and forth to the cottage all day? I'm off to the pier. Get up or don't, it's all on you now." She tosses a rock at your stomach and runs off.\u000a\u000aHer speech is not enough to wrest you from the dreams still circling your drooping eyes. //Oh well,// you think, //it's not like there's anything good happening today.//\u000a\u000aBefore you know it, the afternoon has nearly flown by.\u000a\u000a[[Get up.|S1 Out of bed]]
-p105
+p108
 sg23
 VS1 Nap the day away
-p106
+p109
 sg25
 g26
 ((I2014
-I5
-I21
-I16
-I42
-I26
+I8
+I27
+I20
+I49
+I40
 I2
-I141
+I239
 I1
-tp107
-(dp108
-tp109
-Rp110
+tp110
+(dp111
+tp112
+Rp113
 sg31
-(lp111
+(lp114
 Vintro
-p112
-asg34
+p115
+aVMari
+p116
+asg35
 g26
 ((I2014
 I3
@@ -334,28 +342,28 @@ I52
 I6
 I61
 I0
-tp113
-(dp114
-tp115
-Rp116
-sbsa(dp117
+tp117
+(dp118
+tp119
+Rp120
+sbsa(dp121
 g14
 I00
 sg15
-(lp118
+(lp122
 I510
 aI1276
 asg17
 (itiddlywiki
 Tiddler
-p119
-(dp120
+p123
+(dp124
 g21
 VYou are inside your tiny cottage. Your bed is unmade. There are [[dishes piled in your washtub|Wash dishes]].\u000aThe [[firewood bin|Examine woodbin]] stands a respectful distance from the fireplace, which is white with ash from last night's fire. Instead of hanging //on// your [[weapons rack|Examine weapons rack]], your spear, shield, and armor are unceremoniously propped against it.\u000a\u000a[[Leave cottage|S1 Leave cottage]]
-p121
+p125
 sg23
 Vhome
-p122
+p126
 sg25
 g26
 ((I2014
@@ -367,15 +375,15 @@ I11
 I0
 I181
 I1
-tp123
-(dp124
-tp125
-Rp126
+tp127
+(dp128
+tp129
+Rp130
 sg31
-(lp127
+(lp131
 Vroom
-p128
-asg34
+p132
+asg35
 g26
 ((I2014
 I3
@@ -386,48 +394,48 @@ I20
 I2
 I64
 I0
-tp129
-(dp130
-tp131
-Rp132
-sbsa(dp133
+tp133
+(dp134
+tp135
+Rp136
+sbsa(dp137
 g14
 I00
 sg15
-(lp134
-F39.0
-aF584.0
+(lp138
+F50.0
+aF568.0
 asg17
 (itiddlywiki
 Tiddler
-p135
-(dp136
+p139
+(dp140
 g21
-VYour Health Energy is <<print $player.hp>> out of <<print  $player.maxHP>>.\u000aYour Mental Energy is <<print  $player.mp>> out of <<print  $player.maxMP>>.
-p137
+VYour Physical Energy is <<print $player.hp>> out of <<print  $player.maxHP>>.\u000aYour Mental Energy is <<print  $player.mp>> out of <<print  $player.maxMP>>.
+p141
 sg23
 VHP/MP
-p138
+p142
 sg25
 g26
 ((I2014
-I7
-I15
-I17
+I8
+I27
 I20
-I53
+I48
+I30
+I2
+I239
 I1
-I196
-I1
-tp139
-(dp140
-tp141
-Rp142
+tp143
+(dp144
+tp145
+Rp146
 sg31
-(lp143
+(lp147
 Vmechanics
-p144
-asg34
+p148
+asg35
 g26
 ((I2014
 I3
@@ -438,28 +446,28 @@ I29
 I2
 I64
 I0
-tp145
-(dp146
-tp147
-Rp148
-sbsa(dp149
+tp149
+(dp150
+tp151
+Rp152
+sbsa(dp153
 g14
 I00
 sg15
-(lp150
+(lp154
 I682
 aI916
 asg17
 (itiddlywiki
 Tiddler
-p151
-(dp152
+p155
+(dp156
 g21
 VYou feel somewhat triumphant.
-p153
+p157
 sg23
 Vachievement
-p154
+p158
 sg25
 g26
 ((I2014
@@ -471,13 +479,13 @@ I9
 I2
 I64
 I0
-tp155
-(dp156
-tp157
-Rp158
+tp159
+(dp160
+tp161
+Rp162
 sg31
-(lp159
-sg34
+(lp163
+sg35
 g26
 ((I2014
 I3
@@ -488,28 +496,28 @@ I28
 I2
 I64
 I0
-tp160
-(dp161
-tp162
-Rp163
-sbsa(dp164
+tp164
+(dp165
+tp166
+Rp167
+sbsa(dp168
 g14
 I00
 sg15
-(lp165
+(lp169
 F253.0
 aF1269.0
 asg17
 (itiddlywiki
 Tiddler
-p166
-(dp167
+p170
+(dp171
 g21
 V<<display "stats">>\u000a\u000aEw, no.\u000a\u000a<<home>>
-p168
+p172
 sg23
 VWash dishes
-p169
+p173
 sg25
 g26
 ((I2014
@@ -521,13 +529,13 @@ I0
 I0
 I125
 I1
-tp170
-(dp171
-tp172
-Rp173
+tp174
+(dp175
+tp176
+Rp177
 sg31
-(lp174
-sg34
+(lp178
+sg35
 g26
 ((I2014
 I3
@@ -538,28 +546,28 @@ I39
 I3
 I65
 I0
-tp175
-(dp176
-tp177
-Rp178
-sbsa(dp179
+tp179
+(dp180
+tp181
+Rp182
+sbsa(dp183
 g14
 I00
 sg15
-(lp180
-I213
-aI563
+(lp184
+I203
+aI489
 asg17
 (itiddlywiki
 Tiddler
-p181
-(dp182
+p185
+(dp186
 g21
 V<small>\u005c\u000a<<display 'HP/MP'>>\u000a<<time>>\u005c\u000a</small>\u000a----
-p183
+p187
 sg23
 Vstats
-p184
+p188
 sg25
 g26
 ((I2014
@@ -571,15 +579,15 @@ I44
 I6
 I124
 I1
-tp185
-(dp186
-tp187
-Rp188
+tp189
+(dp190
+tp191
+Rp192
 sg31
-(lp189
+(lp193
 Vmechanics
-p190
-asg34
+p194
+asg35
 g26
 ((I2014
 I3
@@ -590,28 +598,28 @@ I8
 I5
 I67
 I0
-tp191
-(dp192
-tp193
-Rp194
-sbsa(dp195
+tp195
+(dp196
+tp197
+Rp198
+sbsa(dp199
 g14
 I00
 sg15
-(lp196
+(lp200
 F199.0
 aF711.0
 asg17
 (itiddlywiki
 Tiddler
-p197
-(dp198
+p201
+(dp202
 g21
 V<<nobr>>\u000a<<if $unit % 3 == 1>>\u000aEarly \u000a<<endif>>\u000a<<if $unit % 3 == 2>>\u000aMid-\u000a<<endif>>\u000a<<if $unit % 3 == 0>>\u000aLate \u000a<<endif>>\u000a\u000a<<if $unit <= 3>>\u000aMorning\u000a<<endif>>\u000a<<if $unit >= 4 and $unit <= 6>>\u000aAfternoon\u000a<<endif>>\u000a<<if $unit >= 7 and $unit <= 9>>\u000aEvening\u000a<<endif>>\u000a<<if $unit >= 10 and $unit <= 12>>\u000aNight\u000a<<endif>>\u000a<<endnobr>>\u000aDays: <<print $days>>
-p199
+p203
 sg23
 Vtime
-p200
+p204
 sg25
 g26
 ((I2014
@@ -623,13 +631,13 @@ I13
 I1
 I140
 I1
-tp201
-(dp202
-tp203
-Rp204
+tp205
+(dp206
+tp207
+Rp208
 sg31
-(lp205
-sg34
+(lp209
+sg35
 g26
 ((I2014
 I3
@@ -640,28 +648,28 @@ I41
 I5
 I67
 I0
-tp206
-(dp207
-tp208
-Rp209
-sbsa(dp210
+tp210
+(dp211
+tp212
+Rp213
+sbsa(dp214
 g14
 I00
 sg15
-(lp211
+(lp215
 F53.0
 aF711.0
 asg17
 (itiddlywiki
 Tiddler
-p212
-(dp213
+p216
+(dp217
 g21
 V<<nobr>>\u000a<<set $unit += parameter(0)>>\u000a<<if $unit >= 13>>\u000a<<set $unit to 1>>\u000a<<set $days += 1>>\u000a<<endif>>\u000a<<endnobr>>
-p214
+p218
 sg23
 VincrTime
-p215
+p219
 sg25
 g26
 ((I2014
@@ -673,13 +681,13 @@ I50
 I1
 I140
 I1
-tp216
-(dp217
-tp218
-Rp219
+tp220
+(dp221
+tp222
+Rp223
 sg31
-(lp220
-sg34
+(lp224
+sg35
 g26
 ((I2014
 I3
@@ -690,48 +698,50 @@ I10
 I5
 I67
 I0
-tp221
-(dp222
-tp223
-Rp224
-sbsa(dp225
+tp225
+(dp226
+tp227
+Rp228
+sbsa(dp229
 g14
 I00
 sg15
-(lp226
+(lp230
 I412
 aI783
 asg17
 (itiddlywiki
 Tiddler
-p227
-(dp228
+p231
+(dp232
 g21
 V<<nobr>>\u000a<<set $overslept to false>>\u000a<<incrTime 2>>\u000a<<endnobr>>\u005c\u000a<<stats>>\u000a\u000aThere is a thump on the window shutter as Marianela pounds on it. "Hoi in there," she yells, yanking open the shutter. "This is your wake up call! Up up up up!"\u000a\u000a<<set $snoozes to 0>>\u000a\u000a<span class="nonchoice">Get up</span>\u000a[[Just a little longer...|S1 Snooze]]
-p229
+p233
 sg23
 VS1 First waking
-p230
+p234
 sg25
 g26
 ((I2014
-I5
-I21
-I16
-I41
+I8
 I27
+I20
+I49
+I31
 I2
-I141
+I239
 I1
-tp231
-(dp232
-tp233
-Rp234
+tp235
+(dp236
+tp237
+Rp238
 sg31
-(lp235
+(lp239
 Vintro
-p236
-asg34
+p240
+aVMari
+p241
+asg35
 g26
 ((I2014
 I3
@@ -742,28 +752,28 @@ I58
 I4
 I73
 I1
-tp237
-(dp238
-tp239
-Rp240
-sbsa(dp241
+tp242
+(dp243
+tp244
+Rp245
+sbsa(dp246
 g14
 I00
 sg15
-(lp242
+(lp247
 F655.0
 aF1132.0
 asg17
 (itiddlywiki
 Tiddler
-p243
-(dp244
+p248
+(dp249
 g21
 V<<stats>>\u000a\u000a<<print listContents($bpWiki,"woodbin")>>\u000a\u000a<<home>>
-p245
+p250
 sg23
 VExamine woodbin
-p246
+p251
 sg25
 g26
 ((I2014
@@ -775,13 +785,13 @@ I23
 I2
 I141
 I1
-tp247
-(dp248
-tp249
-Rp250
+tp252
+(dp253
+tp254
+Rp255
 sg31
-(lp251
-sg34
+(lp256
+sg35
 g26
 ((I2014
 I4
@@ -792,28 +802,28 @@ I43
 I1
 I105
 I1
-tp252
-(dp253
-tp254
-Rp255
-sbsa(dp256
+tp257
+(dp258
+tp259
+Rp260
+sbsa(dp261
 g14
 I00
 sg15
-(lp257
+(lp262
 F667.0
 aF1288.0
 asg17
 (itiddlywiki
 Tiddler
-p258
-(dp259
+p263
+(dp264
 g21
 V<<stats>>\u000a\u000a<<print listContents($bpWiki,'rack')>>\u000a\u000a<<home>>
-p260
+p265
 sg23
 VExamine weapons rack
-p261
+p266
 sg25
 g26
 ((I2014
@@ -825,13 +835,13 @@ I15
 I2
 I141
 I1
-tp262
-(dp263
-tp264
-Rp265
+tp267
+(dp268
+tp269
+Rp270
 sg31
-(lp266
-sg34
+(lp271
+sg35
 g26
 ((I2014
 I4
@@ -842,28 +852,28 @@ I56
 I1
 I119
 I1
-tp267
-(dp268
-tp269
-Rp270
-sbsa(dp271
+tp272
+(dp273
+tp274
+Rp275
+sbsa(dp276
 g14
 I00
 sg15
-(lp272
+(lp277
 F804.0
 aF559.0
 asg17
 (itiddlywiki
 Tiddler
-p273
-(dp274
+p278
+(dp279
 g21
 V.nonchoice {\u000a	font-weight:bold;\u000a	color:gray;\u000a}
-p275
+p280
 sg23
 Vtooltips
-p276
+p281
 sg25
 g26
 ((I2014
@@ -875,15 +885,15 @@ I4
 I2
 I141
 I1
-tp277
-(dp278
-tp279
-Rp280
+tp282
+(dp283
+tp284
+Rp285
 sg31
-(lp281
+(lp286
 Vstylesheet
-p282
-asg34
+p287
+asg35
 g26
 ((I2014
 I4
@@ -894,48 +904,50 @@ I42
 I1
 I119
 I1
-tp283
-(dp284
-tp285
-Rp286
-sbsa(dp287
+tp288
+(dp289
+tp290
+Rp291
+sbsa(dp292
 g14
 I00
 sg15
-(lp288
+(lp293
 F415.0
 aF1421.0
 asg17
 (itiddlywiki
 Tiddler
-p289
-(dp290
+p294
+(dp295
 g21
 V<<stats>>\u000a\u000aYou don your armor and grab your spear and shield. Minutes later you step outside your cottage.\u000a\u000aMari's mother Mem is sitting on a wooden stool, sharpening her axe on a grindstone. You get the feeling she's been waiting for you from the deliberate way she looks up when your door closes behind you.\u000a\u000a"I trust you slept well?" she inquires.\u000a\u000a[["Well enough. You?"|S1 Reply to Mem 1a]]\u000a[["No thanks to Marianela."|S1 Sass Mem 1a]]
-p291
+p296
 sg23
 VS1 Leave cottage
-p292
+p297
 sg25
 g26
 ((I2014
-I5
-I21
-I16
-I43
-I48
+I8
+I27
+I20
+I50
+I7
 I2
-I141
+I239
 I1
-tp293
-(dp294
-tp295
-Rp296
+tp298
+(dp299
+tp300
+Rp301
 sg31
-(lp297
+(lp302
 Vintro
-p298
-asg34
+p303
+aVMem
+p304
+asg35
 g26
 ((I2014
 I5
@@ -946,48 +958,48 @@ I51
 I0
 I125
 I1
-tp299
-(dp300
-tp301
-Rp302
-sbsa(dp303
+tp305
+(dp306
+tp307
+Rp308
+sbsa(dp309
 g14
 I00
 sg15
-(lp304
-F703.0
-aF1711.0
+(lp310
+F434.0
+aF1722.0
 asg17
 (itiddlywiki
 Tiddler
-p305
-(dp306
+p311
+(dp312
 g21
 VYou stand outside your cottage. Mem and Mari's house stands next to yours. A rutted road leads to the town of Parrier's Rest in one direction, and the thick Forest in another.\u000a\u000a[[Enter your cottage.|S1 Enter cottage]]\u000a[[Go around the back of the houses.|S1 Back of cottage]]\u000a[[Go into town.|Parrier's Rest entrance]]\u000a[[Enter the Forest.|Forest entrance]]
-p307
+p313
 sg23
 VMem's yard description
-p308
+p314
 sg25
 g26
 ((I2014
-I6
-I30
-I17
-I26
-I36
-I0
-I181
+I8
+I27
+I20
+I39
+I22
+I2
+I239
 I1
-tp309
-(dp310
-tp311
-Rp312
+tp315
+(dp316
+tp317
+Rp318
 sg31
-(lp313
+(lp319
 Vroom
-p314
-asg34
+p320
+asg35
 g26
 ((I2014
 I5
@@ -998,28 +1010,28 @@ I16
 I0
 I125
 I1
-tp315
-(dp316
-tp317
-Rp318
-sbsa(dp319
+tp321
+(dp322
+tp323
+Rp324
+sbsa(dp325
 g14
 I00
 sg15
-(lp320
+(lp326
 F127.0
 aF1438.0
 asg17
 (itiddlywiki
 Tiddler
-p321
-(dp322
+p327
+(dp328
 g21
 V<<stats>>\u000a\u000a<<home>>\u000a\u000a
-p323
+p329
 sg23
 VEnter cottage
-p324
+p330
 sg25
 g26
 ((I2014
@@ -1031,13 +1043,13 @@ I10
 I2
 I141
 I1
-tp325
-(dp326
-tp327
-Rp328
+tp331
+(dp332
+tp333
+Rp334
 sg31
-(lp329
-sg34
+(lp335
+sg35
 g26
 ((I2014
 I5
@@ -1048,48 +1060,50 @@ I53
 I0
 I125
 I1
-tp330
-(dp331
-tp332
-Rp333
-sbsa(dp334
+tp336
+(dp337
+tp338
+Rp339
+sbsa(dp340
 g14
 I00
 sg15
-(lp335
+(lp341
 F309.0
 aF1562.0
 asg17
 (itiddlywiki
 Tiddler
-p336
-(dp337
+p342
+(dp343
 g21
 V<<stats>>\u000a\u000a"Good as can be when there are shades crawling out of every knothole," Mem responds grimly. You feel your smile falter. The twisting in your belly tells you what Mem's getting at, but you can only stare as she continues.\u000a\u000a"We had a deal," she tells you, gripping her axe handle with callused hands. "You keep the shades off my property and I let you stick around in that old cottage for free. Or are you too lazy to get more than one or two jellies a month?"\u000a\u000aYou feel your cheeks burning red but you somehow manage to keep the old woman's gaze. This seems to make an impression on her and she sighs, loosening her grip on her axe. When she speaks again, her voice is slightly kinder.\u000a\u000a"I do appreciate all you've done for my family so far, which is why I'm going to sweeten the deal for you. From now on, I'll pay you a bounty. Every shade you kill, I give you a prime log for your fire. Will that help?"\u000a\u000a[["Yes. Thanks."|S1 Reply to Mem 1b]]
-p338
+p344
 sg23
 VS1 Reply to Mem 1a
-p339
+p345
 sg25
 g26
 ((I2014
-I5
-I21
-I16
-I44
-I12
+I8
+I27
+I20
+I50
+I13
 I2
-I141
+I239
 I1
-tp340
-(dp341
-tp342
-Rp343
+tp346
+(dp347
+tp348
+Rp349
 sg31
-(lp344
+(lp350
 Vintro
-p345
-asg34
+p351
+aVMem
+p352
+asg35
 g26
 ((I2014
 I5
@@ -1100,48 +1114,50 @@ I21
 I0
 I125
 I1
-tp346
-(dp347
-tp348
-Rp349
-sbsa(dp350
+tp353
+(dp354
+tp355
+Rp356
+sbsa(dp357
 g14
 I00
 sg15
-(lp351
-I547
-aI1570
+(lp358
+I550
+aI1563
 asg17
 (itiddlywiki
 Tiddler
-p352
-(dp353
+p359
+(dp360
 g21
-V
-p354
+V<<stats>>\u000a\u000a"If you didn't want her to wake you up, you shouldn't have paid her to do it," Mem says, failing to notice that you were joking. "You *could* be using the spare gold to pay your rent!"\u000a\u000aUh oh.\u000a\u000a"But no, you'd rather fall through on every deal you strike. I could see you had it tough and I thought, hey, why not let the lancer pay me with work? Hmph. I'll tell you why." Mem is standing now, with one hand clutching her axe and the other jabbing at your face. "You're not a free lance. You're a free loader! I've had enough. You are going to wipe out the jellies behind my house *today*. Or you can move out."\u000a\u000a[[Agree to help.|S1 Sass Mem 1b]]\u000a
+p361
 sg23
 VS1 Sass Mem 1a
-p355
+p362
 sg25
 g26
 ((I2014
-I5
-I21
-I16
-I44
-I19
+I8
+I27
+I20
+I50
+I17
 I2
-I141
+I239
 I1
-tp356
-(dp357
-tp358
-Rp359
+tp363
+(dp364
+tp365
+Rp366
 sg31
-(lp360
+(lp367
 Vintro
-p361
-asg34
+p368
+aVMem
+p369
+asg35
 g26
 ((I2014
 I5
@@ -1152,48 +1168,50 @@ I40
 I0
 I125
 I1
-tp362
-(dp363
-tp364
-Rp365
-sbsa(dp366
+tp370
+(dp371
+tp372
+Rp373
+sbsa(dp374
 g14
 I00
 sg15
-(lp367
-F317.0
-aF1724.0
+(lp375
+F242.0
+aF1723.0
 asg17
 (itiddlywiki
 Tiddler
-p368
-(dp369
+p376
+(dp377
 g21
-V"Then it's settled." Mem lets out a breath, then gives you a strained smile. She points to the back of her house. "I saw one out there this morning, if you want to get started. They keep gathering back there for some reason. Might want to check behind your cottage too."\u000a\u000aMem begins sharpening her axe again.\u000a\u000a<<display "Mem's yard description">>
-p370
+V<<stats>>\u000a\u000a"Then it's settled." Mem lets out a breath, then gives you a strained smile. She points to the back of her house. "I saw one out there this morning, if you want to get started. They keep gathering back there for some reason. Might want to check behind your cottage too."\u000a\u000aMem begins sharpening her axe again.\u000a\u000a<<display "Mem's yard description">>
+p378
 sg23
 VS1 Reply to Mem 1b
-p371
+p379
 sg25
 g26
 ((I2014
-I5
-I21
-I16
-I44
-I24
+I8
+I27
+I20
+I50
+I23
 I2
-I141
+I239
 I1
-tp372
-(dp373
-tp374
-Rp375
+tp380
+(dp381
+tp382
+Rp383
 sg31
-(lp376
+(lp384
 Vintro
-p377
-asg34
+p385
+aVMem
+p386
+asg35
 g26
 ((I2014
 I5
@@ -1204,48 +1222,48 @@ I46
 I4
 I129
 I1
-tp378
-(dp379
-tp380
-Rp381
-sbsa(dp382
+tp387
+(dp388
+tp389
+Rp390
+sbsa(dp391
 g14
 I00
 sg15
-(lp383
-F518.0
-aF1872.0
+(lp392
+F339.0
+aF1895.0
 asg17
 (itiddlywiki
 Tiddler
-p384
-(dp385
+p393
+(dp394
 g21
-VYou walk around to the back of the houses. Sure enough, two shades are squirming happily through Mem's small herb garden. You tighten your grip on your spear.\u000a\u000a[[Enter battle!|]]
-p386
+V<<stats>>\u000a\u000aYou walk around to the back of the houses. Sure enough, two shades are squirming happily through Mem's small herb garden. You tighten your grip on your spear.\u000a\u000a[[Enter battle!|]]
+p395
 sg23
 VS1 Back of cottage
-p387
+p396
 sg25
 g26
 ((I2014
-I6
-I30
-I17
-I29
-I47
+I8
+I25
+I15
+I41
+I8
 I0
-I181
+I237
 I1
-tp388
-(dp389
-tp390
-Rp391
+tp397
+(dp398
+tp399
+Rp400
 sg31
-(lp392
+(lp401
 Vroom
-p393
-asg34
+p402
+asg35
 g26
 ((I2014
 I5
@@ -1256,48 +1274,50 @@ I10
 I4
 I129
 I1
-tp394
-(dp395
-tp396
-Rp397
-sbsa(dp398
+tp403
+(dp404
+tp405
+Rp406
+sbsa(dp407
 g14
 I00
 sg15
-(lp399
+(lp408
 I419
 aI13
 asg17
 (itiddlywiki
 Tiddler
-p400
-(dp401
+p409
+(dp410
 g21
 V<<stats>>\u000a\u000a"Actually... Can I stay here a little longer?" you ask, hating the desperation cracking your voice.\u000a\u000aKerim studies you for a long moment.\u000a\u000a"Well. I suppose it wouldn't hurt," he finally says. He pulls out the chair opposite you. "There. Now you're a friend, not a patron. Did you want to talk about anything?"\u000a\u000a<span class="nonchoice">"My life feels like it's unraveling."\u000a"It feels like I'm letting Mem down."\u000a"I don't know why I'm in this town."</span>\u000a[["...I can't sleep."|S1 Try to talk to Kerim]]
-p402
+p411
 sg23
 VS1 Linger at the inn
-p403
+p412
 sg25
 g26
 ((I2014
-I7
-I14
-I21
-I4
-I37
-I0
-I195
+I8
+I27
+I20
+I49
+I2
+I2
+I239
 I1
-tp404
-(dp405
-tp406
-Rp407
+tp413
+(dp414
+tp415
+Rp416
 sg31
-(lp408
+(lp417
 Vintro
-p409
-asg34
+p418
+aVKerim
+p419
+asg35
 g26
 ((I2014
 I5
@@ -1308,48 +1328,50 @@ I51
 I3
 I135
 I1
-tp410
-(dp411
-tp412
-Rp413
-sbsa(dp414
+tp420
+(dp421
+tp422
+Rp423
+sbsa(dp424
 g14
 I00
 sg15
-(lp415
+(lp425
 F418.0
 aF166.0
 asg17
 (itiddlywiki
 Tiddler
-p416
-(dp417
+p426
+(dp427
 g21
-V<<stats>>\u000a\u000a"Well. I better go," you say, standing. Kerim nods and raises a hand in parting. You grab your spear and shield and step out of the inn and into the cool night.\u000a\u000aParrier's Rest is a fishing town, and a small one at that. Most of its inhabitants live off the sea, or by providing goods to sailors on leave. Tonight, as on most nights, the townsfolk have gone to bed early. Few windows along the shore are still lit. The wharf is utterly deserted, the only sounds from the sea and the boats, the ropes and the dock itself.\u000a\u000aBehind you, Kerim locks the inn for the evening. A sudden melancholy overtakes you.\u000a\u000a<span class="nonchoice">Go home</span>\u000a[[Linger at the dock|S1 Linger at the dock]]
-p418
+V<<stats>>\u000a\u000aYou are awful for not being able to ask.\u000a\u000a"Well. I better go," you say, standing. Kerim nods and raises a hand in parting. You grab your spear and shield and step out of the inn and into the cool night.\u000a\u000aParrier's Rest is a fishing town, and a small one at that. Most of its inhabitants live off the sea, or by providing goods to sailors on leave. Tonight, as on most nights, the townsfolk have gone to bed early. Few windows along the shore are still lit. The wharf is utterly deserted, the only sounds from the sea and the boats, the ropes and the dock itself.\u000a\u000aFrom behind you comes the sound of Kerim locking up for the evening. A sudden melancholy overtakes you.\u000a\u000a<span class="nonchoice">Go home</span>\u000a[[Linger at the dock|S1 Linger at the dock]]
+p428
 sg23
 VS1 Exit inn
-p419
+p429
 sg25
 g26
 ((I2014
-I5
-I21
+I8
+I27
+I20
+I49
 I16
-I37
-I25
 I2
-I141
+I239
 I1
-tp420
-(dp421
-tp422
-Rp423
+tp430
+(dp431
+tp432
+Rp433
 sg31
-(lp424
+(lp434
 Vintro
-p425
-asg34
+p435
+aVKerim
+p436
+asg35
 g26
 ((I2014
 I5
@@ -1360,48 +1382,50 @@ I10
 I3
 I135
 I1
-tp426
-(dp427
-tp428
-Rp429
-sbsa(dp430
+tp437
+(dp438
+tp439
+Rp440
+sbsa(dp441
 g14
 I00
 sg15
-(lp431
+(lp442
 F575.0
 aF15.0
 asg17
 (itiddlywiki
 Tiddler
-p432
-(dp433
+p443
+(dp444
 g21
-V<<stats>>\u000a\u000a"I see." Kerim sits back in his chair and gives you a relieved smile. "I get that too sometimes. It's just a normal part of life. Try wearing yourself out during the day - that usually helps me fall asleep as soon as I hit the pillow. And sometimes before!" He chuckles. "Don't worry, you'll get through this."\u000a\u000a"I..." Somehow this wasn't what you wanted to hear. "Thank you."\u000a\u000a"Any time," Kerim says. You notice he looks a little tired.\u000a\u000a[[Go home|S1 Exit inn]]
-p434
+V<<stats>>\u000a\u000a"I see." Kerim sits back in his chair and gives you a relieved smile. "I get that too sometimes. It's just a normal part of life. Try wearing yourself out during the day - that usually helps me fall asleep as soon as I hit the pillow. And sometimes before!" He chuckles. "Don't worry, you'll get through this."\u000a\u000a"I..." Somehow this wasn't what you wanted to hear. "Thank you."\u000a\u000a"Any time," Kerim says. You notice he looks a little tired.\u000a\u000a<span class="nonchoice">"Are you okay?"</span>\u000a[[Go home|S1 Exit inn]]
+p445
 sg23
 VS1 Try to talk to Kerim
-p435
+p446
 sg25
 g26
 ((I2014
-I5
-I21
-I16
-I37
-I9
+I8
+I27
+I20
+I49
+I7
 I2
-I141
+I239
 I1
-tp436
-(dp437
-tp438
-Rp439
+tp447
+(dp448
+tp449
+Rp450
 sg31
-(lp440
+(lp451
 Vintro
-p441
-asg34
+p452
+aVKerim
+p453
+asg35
 g26
 ((I2014
 I5
@@ -1412,28 +1436,28 @@ I50
 I3
 I135
 I1
-tp442
-(dp443
-tp444
-Rp445
-sbsa(dp446
+tp454
+(dp455
+tp456
+Rp457
+sbsa(dp458
 g14
 I00
 sg15
-(lp447
+(lp459
 I575
 aI159
 asg17
 (itiddlywiki
 Tiddler
-p448
-(dp449
+p460
+(dp461
 g21
 V<<incrTime 1>>\u005c\u000a<<stats>>\u000a\u000aYou'll have to drag yourself home at some point.\u000a\u000aIn the meantime, you let the damp wind ruffle your hair. You give your tired eyes a small break as you lean on your spear. It is a quiet, lonely moment. You feel a little guilty for enjoying it.\u000a\u000aSuddenly, instinct causes you to point your spear towards an abandoned barrel on the dock. You become aware of a faint scraping noise coming from inside the barrel.\u000a\u000a[[Investigate|S1 Investigate barrel]]
-p450
+p462
 sg23
 VS1 Linger at the dock
-p451
+p463
 sg25
 g26
 ((I2014
@@ -1445,15 +1469,15 @@ I52
 I2
 I141
 I1
-tp452
-(dp453
-tp454
-Rp455
+tp464
+(dp465
+tp466
+Rp467
 sg31
-(lp456
+(lp468
 Vintro
-p457
-asg34
+p469
+asg35
 g26
 ((I2014
 I5
@@ -1464,28 +1488,28 @@ I24
 I5
 I137
 I1
-tp458
-(dp459
-tp460
-Rp461
-sbsa(dp462
+tp470
+(dp471
+tp472
+Rp473
+sbsa(dp474
 g14
 I00
 sg15
-(lp463
+(lp475
 F577.0
 aF306.0
 asg17
 (itiddlywiki
 Tiddler
-p464
-(dp465
+p476
+(dp477
 g21
 V<<stats>>\u000a\u000aThe barrel is sealed tight on top and all around, but the noise is clearly coming from inside. Cautiously, you extend a hand and tilt the barrel just enough that you can peer under it. Sure enough, the barrel is open on the bottom, and inside...\u000a\u000aSomething wriggles out of the opening. You choke in surprise and drop the barrel with a thud, then fumble for a better grip on your spear. The barrel was holding a gelatinous shade! The shade's form quivers as it tries to decide where to run. If you're quick, you can deal with it before it gets away!\u000a\u000a[[Enter battle!|S1 Enter first battle]]
-p466
+p478
 sg23
 VS1 Investigate barrel
-p467
+p479
 sg25
 g26
 ((I2014
@@ -1497,15 +1521,15 @@ I52
 I2
 I141
 I1
-tp468
-(dp469
-tp470
-Rp471
+tp480
+(dp481
+tp482
+Rp483
 sg31
-(lp472
+(lp484
 Vintro
-p473
-asg34
+p485
+asg35
 g26
 ((I2014
 I5
@@ -1516,28 +1540,28 @@ I36
 I5
 I137
 I1
-tp474
-(dp475
-tp476
-Rp477
-sbsa(dp478
+tp486
+(dp487
+tp488
+Rp489
+sbsa(dp490
 g14
 I00
 sg15
-(lp479
+(lp491
 F427.0
 aF332.0
 asg17
 (itiddlywiki
 Tiddler
-p480
-(dp481
+p492
+(dp493
 g21
 V<<stats>>\u000a\u000aA gelatinous shade squirms toward you!\u000a\u000aYou are armed with a shield and spear.\u000a\u000a[[Attack|S1 B1 Attack]]\u000a[[Defend|S1 B1 Defend]]
-p482
+p494
 sg23
 VS1 Enter first battle
-p483
+p495
 sg25
 g26
 ((I2014
@@ -1549,15 +1573,15 @@ I47
 I2
 I141
 I1
-tp484
-(dp485
-tp486
-Rp487
+tp496
+(dp497
+tp498
+Rp499
 sg31
-(lp488
+(lp500
 Vintro
-p489
-asg34
+p501
+asg35
 g26
 ((I2014
 I5
@@ -1568,28 +1592,28 @@ I54
 I6
 I138
 I1
-tp490
-(dp491
-tp492
-Rp493
-sbsa(dp494
+tp502
+(dp503
+tp504
+Rp505
+sbsa(dp506
 g14
 I00
 sg15
-(lp495
+(lp507
 F658.0
 aF453.0
 asg17
 (itiddlywiki
 Tiddler
-p496
-(dp497
+p508
+(dp509
 g21
 V<<stats>>\u000a\u000aYou thrust your spear at the gelatinous shade!\u000a\u000aThe shade seems eager to get away. It lunges to the side, effectively dodging your thrust.\u000a\u000a[[Attack|S1 B1 Attack]]\u000a[[Defend|S1 B1 Defend]]
-p498
+p510
 sg23
 VS1 B1 Attack
-p499
+p511
 sg25
 g26
 ((I2014
@@ -1601,15 +1625,15 @@ I7
 I2
 I141
 I1
-tp500
-(dp501
-tp502
-Rp503
+tp512
+(dp513
+tp514
+Rp515
 sg31
-(lp504
+(lp516
 Vintro
-p505
-asg34
+p517
+asg35
 g26
 ((I2014
 I5
@@ -1620,28 +1644,28 @@ I12
 I0
 I139
 I1
-tp506
-(dp507
-tp508
-Rp509
-sbsa(dp510
+tp518
+(dp519
+tp520
+Rp521
+sbsa(dp522
 g14
 I00
 sg15
-(lp511
+(lp523
 F506.0
 aF483.0
 asg17
 (itiddlywiki
 Tiddler
-p512
-(dp513
+p524
+(dp525
 g21
 V<<stats>>\u000a\u000aYou hoist your spear and set a defensive stance.\u000a\u000aThe shade leaps at you. It is too small to hit effectively with your spearpoint, so you grit your teeth and swing your spear sharply to one side. The spear connects, sending the shade flying into the darkness somewhere.\u000a\u000aYou gaze after it, but the shade does not reappear. Whatever. It's not your problem anymore.\u000a\u000a[[Go home|S1 Go home after first battle]]
-p514
+p526
 sg23
 VS1 B1 Defend
-p515
+p527
 sg25
 g26
 ((I2014
@@ -1653,15 +1677,15 @@ I46
 I2
 I141
 I1
-tp516
-(dp517
-tp518
-Rp519
+tp528
+(dp529
+tp530
+Rp531
 sg31
-(lp520
+(lp532
 Vintro
-p521
-asg34
+p533
+asg35
 g26
 ((I2014
 I5
@@ -1672,28 +1696,28 @@ I15
 I0
 I139
 I1
-tp522
-(dp523
-tp524
-Rp525
-sbsa(dp526
+tp534
+(dp535
+tp536
+Rp537
+sbsa(dp538
 g14
 I00
 sg15
-(lp527
+(lp539
 F535.0
 aF631.0
 asg17
 (itiddlywiki
 Tiddler
-p528
-(dp529
+p540
+(dp541
 g21
 V<<incrTime 1>><<stats>>\u000a\u000aGradually your heart stops racing as you manage to walk home. The walk is long as usual, but tonight it seems longer. You can't help but listen for more scratching noises, or any other indication that another jelly is about to jump out at you.\u000a\u000aStill, you arrive at your door without further incident. You step inside, drop your inventory across the table and floor, and collapse into bed.\u000a\u000aYou adjust your covers, blinking at the darkness of the cottage. And then...\u000a\u000a[[Sleep|S1 First waking]]
-p530
+p542
 sg23
 VS1 Go home after first battle
-p531
+p543
 sg25
 g26
 ((I2014
@@ -1705,15 +1729,15 @@ I0
 I2
 I141
 I1
-tp532
-(dp533
-tp534
-Rp535
+tp544
+(dp545
+tp546
+Rp547
 sg31
-(lp536
+(lp548
 Vintro
-p537
-asg34
+p549
+asg35
 g26
 ((I2014
 I5
@@ -1724,28 +1748,28 @@ I0
 I1
 I140
 I1
-tp538
-(dp539
-tp540
-Rp541
-sbsa(dp542
+tp550
+(dp551
+tp552
+Rp553
+sbsa(dp554
 g14
 I00
 sg15
-(lp543
+(lp555
 F12.0
 aF286.0
 asg17
 (itiddlywiki
 Tiddler
-p544
-(dp545
+p556
+(dp557
 g21
 S'jquery:on\nobfuscatekey:dostlaqjerihgbxcfukyvmznpw\nbookmark:on\nmodernizr:off\nundo:on\nobfuscate:off\n'
-p546
+p558
 sg23
 VStorySettings
-p547
+p559
 sg25
 g26
 ((I2014
@@ -1757,13 +1781,13 @@ I43
 I1
 I182
 I1
-tp548
-(dp549
-tp550
-Rp551
+tp560
+(dp561
+tp562
+Rp563
 sg31
-(lp552
-sg34
+(lp564
+sg35
 g26
 ((I2014
 I7
@@ -1774,28 +1798,28 @@ I41
 I1
 I182
 I1
-tp553
-(dp554
-tp555
-Rp556
-sbsa(dp557
+tp565
+(dp566
+tp567
+Rp568
+sbsa(dp569
 g14
 I00
 sg15
-(lp558
+(lp570
 I165
 aI310
 asg17
 (itiddlywiki
 Tiddler
-p559
-(dp560
+p571
+(dp572
 g21
 V<<nobr>>\u000a<<set $damage = 0>>\u000a<<set $attacker = parameter(0)>>\u000a<<set $defender = parameter(1)>>\u000a<<print $attacker.name>> versus <<print $defender.name>><br>\u000a\u000a/% Determine success floor %/\u000a<<set $sucFlr = 5 - $attacker.acc.actual + $defender.eva.actual>>\u000a$sucFlr = <<print $sucFlr>><br>\u000a\u000a/% Roll for hit %/\u000a<<set $AC = random(1,20)>>\u000a$AC = <<print $AC>><br>\u000a/% Is AC a critical miss? %/\u000a<<if $AC is 1>>\u000a<<endif>>\u000a\u000a/% Calculate damage %/\u000a<<if $AC >= $sucFlr>>\u000a	<<set $damage = random($attacker.weapon.dStage,$attacker.weapon.dStage * 6) + $attacker.str.actual - $defender.con.actual>>\u000a	/% Minimum damage is 1 %/\u000a	<<if $damage <= 0>>\u000a		<<set $damage = 1>>\u000a	<<endif>>\u000a	/% Calculate critical damage %/\u000a	<<if $AC is 20>>\u000a		<<set $damage = $damage * 2>>\u000a	<<endif>>\u000a	/% Reduce defender's HP %/\u000a	<<set $defender.hp -= $damage>>\u000a<<endif>>\u000a<<print $defender.name>> hp = <<print $defender.hp>> after <<print $damage>> damage<br>\u000a<<endnobr>>
-p561
+p573
 sg23
 Vattack
-p562
+p574
 sg25
 g26
 ((I2014
@@ -1807,15 +1831,15 @@ I4
 I2
 I204
 I1
-tp563
-(dp564
-tp565
-Rp566
+tp575
+(dp576
+tp577
+Rp578
 sg31
-(lp567
+(lp579
 Vmechanics
-p568
-asg34
+p580
+asg35
 g26
 ((I2014
 I7
@@ -1826,28 +1850,28 @@ I31
 I0
 I195
 I1
-tp569
-(dp570
-tp571
-Rp572
-sbsa(dp573
+tp581
+(dp582
+tp583
+Rp584
+sbsa(dp585
 g14
 I00
 sg15
-(lp574
+(lp586
 F142.0
 aF23.0
 asg17
 (itiddlywiki
 Tiddler
-p575
-(dp576
+p587
+(dp588
 g21
 V/% Any macros in this passage will be run before the Start passage (or any passage you wish to Test Play) is run. %/\u000a<<set $days to 0>>\u000a<<incrTime 9>>\u000a\u000a/% ITEMS %/\u000a<<set $bpWiki = new ObjWiki()>> \u000a<<set $bpWiki.bread = new Item("bread","A slice of baked goodness.")>>\u000a<<set $bpWiki.cheese = new Item("cheese","A scrumptious nibblet of goat cheese.")>>\u000a<<set $bpWiki.firewood = new Item("firewood","A log suitable for burning.")>>\u000a<<set $bpWiki.spear = new Weapon("spear","Your trusty spear, given to you by your mother.",2)>>\u000a<<set $bpWiki.shield = new Item("shield","Your best shield, given to you by your grandfather.")>>\u000a<<set $bpWiki.armor = new Item("armor","Your light armor, essential for your free lance work.")>>\u000a\u000a<<set $woodbin = new ObjWiki()>>\u000a<<set $woodbin.firewood = new RefItem($bpWiki.firewood,3)>>\u000a\u000a/% MODIFIERS %/\u000a\u000a\u000a/% COMBATANTS %/\u000a<<set $player = new Combatant("player","Free Lance")>>\u000a<<set $player.initHP(10,20)>>\u000a<<set $player.initMP(2,10)>>\u000a<<set $player.initAP(0,10)>>\u000a<<set $player.initStats(4,3,2,2)>>\u000a<<set $player.equipWeapon($bpWiki.spear)>>\u000a\u000a<<set $shadeTest = new Combatant("shade","Parasite")>>\u000a<<set $shadeTest.initHP(100,100)>>\u000a<<set $shadeTest.initStats(2,4,1,1)>>
-p577
+p589
 sg23
 VStoryInit
-p578
+p590
 sg25
 g26
 ((I2014
@@ -1859,13 +1883,13 @@ I8
 I1
 I217
 I1
-tp579
-(dp580
-tp581
-Rp582
+tp591
+(dp592
+tp593
+Rp594
 sg31
-(lp583
-sg34
+(lp595
+sg35
 g26
 ((I2014
 I7
@@ -1876,130 +1900,28 @@ I44
 I1
 I196
 I1
-tp584
-(dp585
-tp586
-Rp587
-sbsa(dp588
-g14
-I00
-sg15
-(lp589
-F182.0
-aF174.0
-asg17
-(itiddlywiki
-Tiddler
-p590
-(dp591
-g21
-V<<nobr>>\u000a<<if visited() is 1>>\u000aFirst visit! \u000a<<set $test = new Mod("random",5,2)>>\u000a<<set $shadeTest.con.modStat($test)>>\u000a<<endif>>\u000a\u000a<<endnobr>><<if visited() != 1>>\u005c\u000a<<passTurn shadeTest>>\u000a<<endif>>\u005c\u000a<<attack $player $shadeTest>>\u000a\u000aShade's con: <<print $shadeTest.con.actual>>\u000a\u000a[[Attack again|Test attack]]\u000a[[Defend|Test defend]]
-p592
-sg23
-VTest attack
-p593
-sg25
-g26
-((I2014
-I8
-I15
-I18
-I31
-I17
-I4
-I227
-I1
-tp594
-(dp595
 tp596
-Rp597
-sg31
-(lp598
-Vtest
-p599
-asg34
-g26
-((I2014
-I7
-I21
-I18
-I37
-I23
-I0
-I202
-I1
-tp600
-(dp601
-tp602
-Rp603
-sbsa(dp604
+(dp597
+tp598
+Rp599
+sbsa(dp600
 g14
 I00
 sg15
-(lp605
-F296.0
-aF309.0
-asg17
-(itiddlywiki
-Tiddler
-p606
-(dp607
-g21
-V<<nobr>>\u000a\u000a\u000a<<endnobr>>
-p608
-sg23
-VTest defend
-p609
-sg25
-g26
-((I2014
-I8
-I5
-I16
-I46
-I4
-I1
-I217
-I1
-tp610
-(dp611
-tp612
-Rp613
-sg31
-(lp614
-sg34
-g26
-((I2014
-I8
-I5
-I16
-I45
-I8
-I1
-I217
-I1
-tp615
-(dp616
-tp617
-Rp618
-sbsa(dp619
-g14
-I00
-sg15
-(lp620
+(lp601
 F680.0
 aF695.0
 asg17
 (itiddlywiki
 Tiddler
-p621
-(dp622
+p602
+(dp603
 g21
 V<<passTurn>> there.
-p623
+p604
 sg23
 Vtest macro
-p624
+p605
 sg25
 g26
 ((I2014
@@ -2011,15 +1933,15 @@ I37
 I4
 I227
 I1
-tp625
-(dp626
-tp627
-Rp628
+tp606
+(dp607
+tp608
+Rp609
 sg31
-(lp629
+(lp610
 Vtest
-p630
-asg34
+p611
+asg35
 g26
 ((I2014
 I8
@@ -2030,28 +1952,28 @@ I44
 I4
 I227
 I1
-tp631
-(dp632
-tp633
-Rp634
-sbsa(dp635
+tp612
+(dp613
+tp614
+Rp615
+sbsa(dp616
 g14
 I00
 sg15
-(lp636
+(lp617
 I722
 aI21
 asg17
 (itiddlywiki
 Tiddler
-p637
-(dp638
+p618
+(dp619
 g21
 Vwindow.ObjWiki = function () {\u000a	this.listContents = function () {\u000a		for(var item in this) {\u000a			if(heldItems) {\u000a				heldItems += ", ";\u000a			}\u000a			else {\u000a				var heldItems = "You have: ";\u000a			}\u000a			heldItems += this[item].amount + " " + this[item].objRef.name;\u000a		}\u000a		heldItems += ".";\u000a		return heldItems;\u000a	}\u000a}\u000a/* listContents() needs to become a macro */\u000awindow.listContents = function (wiki) {\u000a	for(var item in wiki) {\u000a		if(heldItems) {\u000a			heldItems += ", ";\u000a		}\u000a		else {\u000a			var heldItems = "You have: ";\u000a		}\u000a		heldItems += wiki[item].amount + " " + wiki[item].objRef.name;\u000a	}\u000a	heldItems += ".";\u000a	return heldItems;\u000a}\u000a\u000awindow.Item = function (name,description) {\u000a	this.name = name;\u000a	this.description = description;\u000a};\u000awindow.Weapon = function (name,description,dStage) {\u000a	/* Weapon class is a child of Item */\u000a	Item.call(this,name,description);\u000a\u000a	this.dStage = dStage;\u000a}\u000awindow.RefItem = function (obj,num) {\u000a	this.objRef = obj;\u000a	this.amount = num;\u000a	this.changeAmount = function(t) {\u000a		if(this.amount >= Math.abs(t)) {\u000a			this.amount += t;\u000a		}\u000a		else this.amount = t;\u000a	}\u000a};\u000a\u000awindow.Combatant = function (name,title) {\u000a	this.name = name;\u000a	this.title = title;\u000a	\u000a	/* Initialization functions */\u000a	this.initHP = function (current,max) {\u000a		this.hp = current;\u000a		this.maxHP = max;\u000a	}\u000a	this.initMP = function (current,max) {\u000a		this.mp = current;\u000a		this.maxMP = max;\u000a	}\u000a	this.initAP = function (current,goal) {\u000a		this.ap = current;\u000a		this.maxAP = goal;\u000a	}\u000a	this.initStats = function (str,con,acc,eva) {\u000a		this.str = new Stat(str);\u000a		this.con = new Stat(con);\u000a		this.acc = new Stat(acc);\u000a		this.eva = new Stat(eva);\u000a	}\u000a	this.equipWeapon = function (weapon) {\u000a		this.weapon = weapon;\u000a	}\u000a	this.equipArmor = function (armor) {\u000a		this.armor = armor;\u000a	}\u000a}\u000awindow.Stat = function(base) {\u000a	this.base = base;\u000a	this.actual = base;\u000a	this.mods = [];\u000a	this.modStat = function(mod) {\u000a		this.mods.push(new RefMod(mod));\u000a		this.actual += mod.modAmt;\u000a	}\u000a}\u000awindow.Mod = function(source,amount,turns) {\u000a	this.source = source;\u000a	this.modAmt = amount;\u000a	this.turns = turns;\u000a}\u000awindow.RefMod = function(mod) {\u000a	this.modRef = mod;\u000a	this.duration = mod.turns;\u000a}\u000a\u000a/* passTurn should be used at the beginning of a turn */\u000atry {\u000a	version.extensions['passTurnMacro'] =\u000a	{\u000a		major:1, minor:0, revision:0\u000a	};\u000a	macros['passTurn'] =\u000a	{\u000a		handler: function(place,macroName,params,parser)\u000a		{\u000a			for(n = params.length - 1; n > -1; n--) \u000a			{\u000a				test = params[n];\u000a				/*new Wikifier(place,test);*/\u000a				this.turnStat(state.history[0].variables[test].str);\u000a				this.turnStat(state.history[0].variables[test].con);\u000a				this.turnStat(state.history[0].variables[test].acc);\u000a				this.turnStat(state.history[0].variables[test].eva);\u000a			}\u000a		},\u000a		init: function() \u000a		{ \u000a			\u000a		},\u000a		turnStat: function(stat) {\u000a			i = stat.mods.length - 1;\u000a			/*alert(i);*/\u000a			while(i > -1) {\u000a				stat.mods[i].duration--;\u000a				if (stat.mods[i].duration <= 0) {\u000a					stat.actual -= stat.mods[i].modRef.modAmt;\u000a					stat.mods.splice(i,1);\u000a				}\u000a				i--;\u000a			}\u000a		}\u000a	};\u000a} catch(e) {\u000a	throwError(place,"passTurn error: "+e.message);\u000a}
-p639
+p620
 sg23
 VRPG classes and engine
-p640
+p621
 sg25
 g26
 ((I2014
@@ -2063,20 +1985,72 @@ I49
 I1
 I231
 I1
-tp641
-(dp642
-tp643
-Rp644
+tp622
+(dp623
+tp624
+Rp625
 sg31
-(lp645
+(lp626
 Vscript
-p646
-asg34
-g644
+p627
+asg35
+g625
+sbsa(dp628
+g14
+I00
+sg15
+(lp629
+F616.0
+aF1727.0
+asg17
+(itiddlywiki
+Tiddler
+p630
+(dp631
+g21
+V<<stats>>\u000a\u000aMem returns to her seat and places her axe head to the stone wheel. She pauses. She looks back up at you. The angry tension has left her body now, but her gaze is hard, determined.\u000a\u000aYou flinch and look away.\u000a\u000aMem says, "Don't you dare go anywhere beside out back to take care of those jellies."\u000a\u000a<<display "Mem's yard description">>
+p632
+sg23
+VS1 Sass Mem 1b
+p633
+sg25
+g26
+((I2014
+I8
+I27
+I20
+I50
+I42
+I2
+I239
+I1
+tp634
+(dp635
+tp636
+Rp637
+sg31
+(lp638
+VMem
+p639
+asg35
+g26
+((I2014
+I8
+I27
+I20
+I39
+I30
+I2
+I239
+I1
+tp640
+(dp641
+tp642
+Rp643
 sbsasS'scale'
-p647
+p644
 I1
 sS'snapping'
-p648
+p645
 I00
 ss.
