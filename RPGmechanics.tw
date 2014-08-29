@@ -8,15 +8,16 @@
 <<set $spotlight.acc.turnStat()>>
 <<endnobr>>
 
+
 ::attack [mechanics]
 <<nobr>>
 <<set $damage = 0>>
 <<set $attacker = parameter(0)>>
-<<set $defender = parameter(1)>>
-<<print $attacker.name>> versus <<print $defender.name>><br>
+<<set $attackee = parameter(1)>>
+<<print $attacker.name>> versus <<print $attackee.name>><br>
 
 /% Determine success floor %/
-<<set $sucFlr = 5 - $attacker.acc.actual + $defender.eva.actual>>
+<<set $sucFlr = 5 - $attacker.acc.actual + $attackee.eva.actual>>
 $sucFlr = <<print $sucFlr>><br>
 
 /% Roll for hit %/
@@ -28,7 +29,7 @@ $AC = <<print $AC>><br>
 
 /% Calculate damage %/
 <<if $AC >= $sucFlr>>
-	<<set $damage = random($attacker.weapon.dStage,$attacker.weapon.dStage * 6) + $attacker.str.actual - $defender.con.actual>>
+	<<set $damage = random($attacker.weapon.dStage,$attacker.weapon.dStage * 6) + $attacker.str.actual - $attackee.con.actual>>
 	/% Minimum damage is 1 %/
 	<<if $damage <= 0>>
 		<<set $damage = 1>>
@@ -37,8 +38,15 @@ $AC = <<print $AC>><br>
 	<<if $AC is 20>>
 		<<set $damage = $damage * 2>>
 	<<endif>>
-	/% Reduce defender's HP %/
-	<<set $defender.hp -= $damage>>
+	/% Reduce attackee's HP %/
+	<<set $attackee.hp -= $damage>>
 <<endif>>
-<<print $defender.name>> hp = <<print $defender.hp>> after <<print $damage>> damage<br>
+<<print $attackee.name>> hp = <<print $attackee.hp>> after <<print $damage>> damage<br>
+<<endnobr>>
+
+
+::defend [mechanics]
+<<nobr>>
+<<set $defender = parameter(0)>>
+<<set $defender.con.modStat($defend)>>
 <<endnobr>>

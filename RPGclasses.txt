@@ -95,18 +95,21 @@ window.Stat = function(base) {
 		this.actual += mod.modAmt;
 	}
 	this.turnStat = function() {
-			i = this.mods.length - 1;
-			/*alert(i);*/
-			while(i > -1) {
-				this.mods[i].duration--;
-				if (this.mods[i].duration <= 0) {
-					this.actual -= this.mods[i].modRef.modAmt;
-					this.mods.splice(i,1);
+			if (this.mods.length != 0) {
+				i = this.mods.length - 1;
+				/*alert(i);*/
+				while(i > -1) {
+					this.mods[i].duration--;
+					if (this.mods[i].duration <= 0) {
+						this.actual -= this.mods[i].modRef.modAmt;
+						this.mods.splice(i,1);
+					}
+					i--;
 				}
-				i--;
 			}
 		}
 }
+/* Shouldn't Mod have a way of telling which stats are affected? */
 window.Mod = function(source,amount,turns) {
 	this.source = source;
 	this.modAmt = amount;

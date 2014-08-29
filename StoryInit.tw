@@ -16,6 +16,7 @@
 <<set $woodbin.firewood = new RefItem($bpWiki.firewood,3)>>
 
 /% MODIFIERS %/
+<<set $defend = new Mod("Defending",3,1)>>
 
 
 /% COMBATANTS %/

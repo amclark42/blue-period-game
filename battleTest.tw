@@ -11,6 +11,7 @@ probablefutures
 <<endnobr>>\
 <<attack $player $shadeTest>>
 
+Player's con: <<print $player.con.actual>>
 Shade's con: <<print $shadeTest.con.actual>>
 
 [[Attack again|Test attack]]
@@ -21,6 +22,7 @@ Shade's con: <<print $shadeTest.con.actual>>
 <<passTurn $shadeTest>>
 <<attack $player $shadeTest>>
 
+Player's con: <<print $player.con.actual>>
 Shade's con: <<print $shadeTest.con.actual>>
 
 [[Attack again|Test attack]]
@@ -29,6 +31,8 @@ Shade's con: <<print $shadeTest.con.actual>>
 
 ::Test defend [test]
 <<nobr>>
+<<defend $player>>
 
+Player's con: <<print $player.con.actual>>
 <<endnobr>>
 
