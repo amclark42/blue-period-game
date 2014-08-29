@@ -1,31 +1,12 @@
-::Start
+::passTurn [mechanics]
+/% passTurn should be used at the beginning of a turn %/
 <<nobr>>
-<<set $test = new Mod("random",5,2)>>
-<<set $shadeTest.con.modStat($test)>>
-<<endnobr>>\
-<<attack $player $shadeTest>>
-
-Shade's con: <<print $shadeTest.con.actual>>
-
-[[Attack again|Test attack]]
-[[Defend|Test defend]]
-
-
-::Test attack [test]
-<<passTurn shadeTest>>
-<<attack $player $shadeTest>>
-
-Shade's con: <<print $shadeTest.con.actual>>
-
-[[Attack again|Test attack]]
-[[Defend|Test defend]]
-
-
-::Test defend [test]
-<<nobr>>
-
+<<set $spotlight = parameter(0)>>
+<<set $spotlight.str.turnStat()>>
+<<set $spotlight.con.turnStat()>>
+<<set $spotlight.agi.turnStat()>>
+<<set $spotlight.acc.turnStat()>>
 <<endnobr>>
-
 
 ::attack [mechanics]
 <<nobr>>
