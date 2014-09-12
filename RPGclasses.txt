@@ -76,8 +76,8 @@ window.Combatant = function (name,title) {
 	this.initStats = function (str,con,agi,acc) {
 		this.str = new Stat(str);
 		this.con = new Stat(con);
-		this.acc = new Stat(agi);
-		this.eva = new Stat(acc);
+		this.agi = new Stat(agi);
+		this.acc = new Stat(acc);
 	}
 	this.equipWeapon = function (weapon) {
 		this.weapon = weapon;
@@ -118,4 +118,10 @@ window.Mod = function(source,amount,turns) {
 window.RefMod = function(mod) {
 	this.modRef = mod;
 	this.duration = mod.turns;
+}
+
+/* Given a number of combatants, returns an array of combatants from fastest to slowest. */
+window.getInitiative = function() {
+	var initArray = Array.prototype.slice.call(arguments,0);
+	return initArray.sort(function(a,b) {return b.agi.actual-a.agi.actual});
 }

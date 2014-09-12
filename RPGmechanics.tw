@@ -17,7 +17,7 @@
 <<print $attacker.name>> versus <<print $attackee.name>><br>
 
 /% Determine success floor %/
-<<set $sucFlr = 5 - $attacker.acc.actual + $attackee.eva.actual>>
+<<set $sucFlr = 5 - $attacker.acc.actual + $attackee.agi.actual>>
 $sucFlr = <<print $sucFlr>><br>
 
 /% Roll for hit %/

@@ -6,15 +6,17 @@ probablefutures
 
 ::Start
 <<nobr>>
+<<set $initiative = getInitiative($player,$shadeTest)>>
 <<set $test = new Mod("random",5,2)>>
 <<set $shadeTest.con.modStat($test)>>
 <<endnobr>>\
+<<print $initiative[0].name>> goes first!
 <<attack $player $shadeTest>>
 
 Player's con: <<print $player.con.actual>>
 Shade's con: <<print $shadeTest.con.actual>>
 
-[[Attack again|Test attack]]
+[[Attack|Test attack]]
 [[Defend|Test defend]]
 
 
@@ -25,7 +27,7 @@ Shade's con: <<print $shadeTest.con.actual>>
 Player's con: <<print $player.con.actual>>
 Shade's con: <<print $shadeTest.con.actual>>
 
-[[Attack again|Test attack]]
+[[Attack|Test attack]]
 [[Defend|Test defend]]
 
 
@@ -34,5 +36,9 @@ Shade's con: <<print $shadeTest.con.actual>>
 <<defend $player>>
 
 Player's con: <<print $player.con.actual>>
+Shade's con: <<print $shadeTest.con.actual>>
 <<endnobr>>
+
+[[Attack|Test attack]]
+[[Defend|Test defend]]
 
