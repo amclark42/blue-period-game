@@ -14,7 +14,9 @@
 <<set $damage = 0>>
 <<set $attacker = parameter(0)>>
 <<set $attackee = parameter(1)>>
-<<print $attacker.name>> versus <<print $attackee.name>><br>
+<<if $debug = true>>
+  <<print $attacker.name>> versus <<print $attackee.name>><br>
+<<endif>>
 
 /% Determine success floor %/
 <<set $sucFlr = 5 - $attacker.acc.actual + $attackee.agi.actual>>
@@ -41,7 +43,9 @@ $AC = <<print $AC>><br>
 	/% Reduce attackee's HP %/
 	<<set $attackee.hp -= $damage>>
 <<endif>>
-<<print $attackee.name>> hp = <<print $attackee.hp>> after <<print $damage>> damage<br>
+<<if $debug = true>>
+  <<print $attackee.name>> hp = <<print $attackee.hp>> after <<print $damage>> damage<br>
+<<endif>>
 <<endnobr>>
 
 

@@ -2,6 +2,7 @@
 /% Any macros in this passage will be run before the Start passage (or any passage you wish to Test Play) is run. %/
 <<set $days to 0>>
 <<incrTime 9>>
+<<set $debug = true>>
 
 /% ITEMS %/
 <<set $bpWiki = new ObjWiki()>> 
@@ -20,13 +21,13 @@
 
 
 /% COMBATANTS %/
-<<set $player = new Combatant("player","Free Lance")>>
+<<set $player = new Combatant("Player","Free Lance")>>
 <<set $player.initHP(10,20)>>
 <<set $player.initMP(2,10)>>
 <<set $player.initAP(0,10)>>
 <<set $player.initStats(4,3,2,2)>>
 <<set $player.equipWeapon($bpWiki.spear)>>
 
-<<set $shadeTest = new Combatant("shade","Parasite")>>
+<<set $shadeTest = new Combatant("Shade","Parasite")>>
 <<set $shadeTest.initHP(100,100)>>
 <<set $shadeTest.initStats(2,4,1,1)>>

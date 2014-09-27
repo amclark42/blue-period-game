@@ -10,14 +10,34 @@ probablefutures
 <<set $test = new Mod("random",5,2)>>
 <<set $shadeTest.con.modStat($test)>>
 <<endnobr>>\
-<<print $initiative[0].name>> goes first!
-<<attack $player $shadeTest>>
+<<battleController>>
 
+
+::battleController [test]
+/% Maneuver initiative array, then allow the next combatant to take their turn %/
+<<set $spotlight = $initiative[0]>>\
+It is <<print $spotlight.name>>'s turn!
+
+<<takeTurn $spotlight>>
+<<set $initiative.shift()>>\
+<<set $initiative.push($spotlight)>>\
+<<print $initiative[0].name>> goes next!
+
+
+::takeTurn [test]
 Player's con: <<print $player.con.actual>>
 Shade's con: <<print $shadeTest.con.actual>>
+<<display parameter(0).name+" turn">>
 
+::Player turn [test]
 [[Attack|Test attack]]
 [[Defend|Test defend]]
+
+
+::Shade turn [test]
+The thing attacks you!
+
+[[owch!|Take hit]]
 
 
 ::Test attack [test]
@@ -27,17 +47,14 @@ Shade's con: <<print $shadeTest.con.actual>>
 Player's con: <<print $player.con.actual>>
 Shade's con: <<print $shadeTest.con.actual>>
 
-[[Attack|Test attack]]
-[[Defend|Test defend]]
+<<display "Battle actions">>
 
 
 ::Test defend [test]
-<<nobr>>
 <<defend $player>>
 
 Player's con: <<print $player.con.actual>>
 Shade's con: <<print $shadeTest.con.actual>>
-<<endnobr>>
 
 [[Attack|Test attack]]
 [[Defend|Test defend]]
